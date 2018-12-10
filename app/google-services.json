@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "291320481415",
+    "firebase_url": "https://fitness-d6ced.firebaseio.com",
+    "project_id": "fitness-d6ced",
+    "storage_bucket": "fitness-d6ced.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291320481415:android:b9bc3b371bf08da5",
+        "android_client_info": {
+          "package_name": "com.example.steve.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291320481415-8k947ipn9se4err8bq7genhmd6dci4q4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.steve.fitness",
+            "certificate_hash": "5e5f363e7df63771b09bc9e690d1c30ace3bd6db"
+          }
+        },
+        {
+          "client_id": "291320481415-3d8useqrqhr4vtt866vj1kb8fg64vgb4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBheK3tBlUnOi6RZqxfdSyKAv4soBXN33Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291320481415-3d8useqrqhr4vtt866vj1kb8fg64vgb4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
