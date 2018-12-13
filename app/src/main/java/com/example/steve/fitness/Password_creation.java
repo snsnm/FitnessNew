@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-class Password_creation extends AppCompatActivity {
+public class Password_creation extends AppCompatActivity {
     private Button mNext, mBack;
     private EditText mPassword, mConfirmPassword;
 
@@ -32,7 +33,17 @@ class Password_creation extends AppCompatActivity {
         mConfirmPassword = (EditText) findViewById(R.id.confirmPass);
 
         mNext = (Button) findViewById(R.id.next);
-        //mBack = (Button) findViewById(R.id.back);
+        mBack = (Button) findViewById(R.id.back);
+
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Password_creation.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
 
 
         mNext.setOnClickListener(new View.OnClickListener() {
@@ -48,11 +59,15 @@ class Password_creation extends AppCompatActivity {
 
                     mAuth = FirebaseAuth.getInstance();
                     //now we create a user with authentication
+                    Log.d("emaill", UserState.email);
+                    Log.d("password", UserState.password);
                     mAuth.createUserWithEmailAndPassword(UserState.email, UserState.password).addOnCompleteListener(Password_creation.this, new OnCompleteListener<AuthResult>() {
                         //Toast.makeText(Password_creation.this, "User creation Successful", Toast.LENGTH_SHORT).show();
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d("yo", "okk");
                             if(!task.isSuccessful()){
+
                                 Toast.makeText(Password_creation.this, "User creation Unsuccessful", Toast.LENGTH_SHORT).show();
                             }else{
                                 //create the user  in the database here.

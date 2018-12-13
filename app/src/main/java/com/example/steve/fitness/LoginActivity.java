@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, Register.class);
                 startActivity(intent);
-               // finish();
-                //return;
+                finish();
+                return;
 
 
 
@@ -82,7 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                         if(!task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Sign in Error", Toast.LENGTH_SHORT).show();
                         }else{
-
+                            Intent intent = new Intent(LoginActivity.this, HomePage.class);
+                            startActivity(intent);
+                            finish();
+                            return;
                         }
                     }
                 });

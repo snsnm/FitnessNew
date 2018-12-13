@@ -37,8 +37,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Register.this, LoginActivity.class);
                 startActivity(intent);
-                //finish();
-                //return();
+                finish();
+                return;
             }
         });
 
@@ -83,8 +83,8 @@ public class Register extends AppCompatActivity {
         String name = mFirstName.getText().toString().trim();
 
         String subject = "Confirmation Code";
-        String message = name + ",\nWelcome to Connectic Fitness, \nHere is your confirmation code: 1234. \n\nThe Support Team, \n" +
-             "\n" + "\n"+
+        String message = "Hi " +name + ",\nWelcome to Connectic Fitness, \nHere is your confirmation code: 1234. \n\nThe Support Team, \n" +
+             "\n"+
              "Connectic Fitness\n";
 
 

@@ -3,6 +3,7 @@ package com.example.steve.fitness;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.util.Properties;
 
@@ -51,11 +52,25 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
         //Confirfuring properties for gmail
         //If u are not using gmail, u may need to change the values
 
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.Class", "javax.net.ssl.SSLSocketFactory");
+//        props.put("mail.transport.protocol", "smtp");
+//        props.put("mail.smtp.host", "smtp.gmail.com");
+//        props.put("mail.smtp.socketFactory.port", "587");
+//        props.put("mail.smtp.socketFactory.Class", "javax.net.ssl.SSLSocketFactory");
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.port", "587");
+//        props.put("mail.smtp.socketFactory.fallback", "false");
+//
+
+
+        props.setProperty("mail.transport.protocol", "smtp");
+        props.setProperty("mail.host", "smtp.gmail.com");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
+        props.put("mail.debug", "true");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
+        props.put("mail.smtp.starttls.enable", "true");
 
         //Creating a new session
         session = Session.getDefaultInstance(props,
@@ -66,10 +81,12 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
                     }
                 });
         try{
+            Transport transport = session.getTransport();
             //Creatinf MimeMessage object
-            MimeMessage mm = new MimeMessage(session);
+            Message mm = new MimeMessage(session);
 
             //setting sender adress
+            Log.d("yo", "uoooo");
             mm.setFrom(new InternetAddress(Config.EMAIL));
             //ADDING A RECEIVER
             mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
@@ -78,12 +95,19 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
             mm.setSubject(subject);
             //adding Message
             mm.setText(message);
+            Log.d("yo", "badd");
 
+
+            transport.connect();
             //Sending email
             Transport.send(mm);
+            Log.d("o", "lamee");
+            transport.close();
 
         }catch (MessagingException e){
             e.printStackTrace();
+            e.toString();
+
         }
         return null;
     }

@@ -27,8 +27,8 @@ public class Confirmation extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Confirmation.this, Register.class);
                 startActivity(intent);
-                //finish();
-                //return();
+                finish();
+                return;
             }
         });
 
