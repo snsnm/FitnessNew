@@ -76,19 +76,24 @@ public class LoginActivity extends AppCompatActivity {
 
                 final String email = mEmail.getText().toString().trim();
                 final String password = mPassword.getText().toString();
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Sign in Error", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Intent intent = new Intent(LoginActivity.this, HomePage.class);
-                            startActivity(intent);
-                            finish();
-                            return;
+                if(email.isEmpty() || password.isEmpty()){
+                    Toast.makeText(LoginActivity.this, "Sign in Error", Toast.LENGTH_SHORT).show();
+                }else{
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(!task.isSuccessful()){
+                                Toast.makeText(LoginActivity.this, "Sign in Error", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Intent intent = new Intent(LoginActivity.this, HomePage.class);
+                                startActivity(intent);
+                                finish();
+                                return;
+                            }
                         }
-                    }
-                });
+                    });
+                }
+
             }
         });
 

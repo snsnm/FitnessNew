@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +20,7 @@
         <activity android:name=".Register"/>
         <activity android:name=".Confirmation"/>
         <activity android:name=".Password_creation"/>
-        <activity android:name=".HomePage"/>
+        <activity android:name=".HomePage" android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 

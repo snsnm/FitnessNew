@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item android:id="@+id/saved"
+            android:icon="@drawable/ic_saved"
+            android:title="Saved"/>
+        <item android:id="@+id/cart"
+            android:icon="@drawable/ic_shopping_cart"
+            android:title="Cart"/>
+        <item android:id="@+id/sign_out"
+            android:icon="@drawable/ic_sign_out"
+            android:title="Sign Out"/>
+
+
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item android:id="@+id/log_out"
+                android:icon="@drawable/ic_sign_out"
+                android:title="Log Out try"/>
+
+        </menu>
+
+    </item>
+
+
+
+</menu>
